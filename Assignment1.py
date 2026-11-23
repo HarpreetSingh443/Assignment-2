@@ -1,18 +1,13 @@
 
-Student_name = input("What is the Students name? ")
-print("Hello " + Student_name + "!")
-grade = input("What grade did this student get? ")
-attendance = input("What is the students attendance percentage? ")
+Student_id = input("what is the student's ID number? ")
+student_name = input("what is the student's name? ")
+print("Hello " + student_name + "!")
 
+subject = input("which subject is this mark for? ")
+grade = input("what is the student's mark (0-100)? ")
+attendance = input("what is the student's attendance percentage (0-100)? ")
 
-print("So, you are " + Student_name + " with a Grade of " + grade + " and a Attendance score of " + attendance)
-
-
-
-
-
-
-
+print(f"{Student_id} | {student_name} | {subject} | Mark: {grade} | Attendance: {attendance}%")
 
 
 
