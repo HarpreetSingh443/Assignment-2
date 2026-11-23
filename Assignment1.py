@@ -6,6 +6,8 @@ print("Hello " + student_name + "!")
 subject = input("which subject is this mark for? ")
 grade = input("what is the student's mark (0-100)? ")
 attendance = input("what is the student's attendance percentage (0-100)? ")
+grade = float(grade)
+attendance = float(attendance)
 
 print(f"{Student_id} | {student_name} | {subject} | Mark: {grade} | Attendance: {attendance}%")
 
