@@ -9,6 +9,16 @@ attendance = input("what is the student's attendance percentage (0-100)? ")
 
 print(f"{Student_id} | {student_name} | {subject} | Mark: {grade} | Attendance: {attendance}%")
 
+#Creating a Dictionary to store the student information
+
+student = {
+    "student_id": Student_id,
+    "name": student_name,
+    "subject": subject,
+    "grade": grade,
+    "attendance": attendance,
+}
+print(student)
 
 
 
