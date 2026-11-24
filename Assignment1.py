@@ -20,9 +20,18 @@ for number in range(1, 4):
         if Student_id:
             break
         print("Student ID cannot be blank. Please enter a valid ID number.")
-        
-    student_name = input("what is the student's name? ")
-    subject = input("which subject is this mark for? ")
+    
+    while True:
+        student_name = input("what is the student's name? ").strip()
+        if student_name:
+            break
+        print("Student name cannot be blank. Please enter a valid name.")
+    
+    while True:
+        subject = input("which subject is this mark for? ").strip()
+        if subject:
+            break
+        print("Subject cannot be blank. Please enter a valid subject.")    
     
 
     #final error message with loop to ensure valid input for grade and attendance
