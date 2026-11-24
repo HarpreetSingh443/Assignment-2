@@ -8,33 +8,47 @@ grade = input("what is the student's mark (0-100)? ")
 attendance = input("what is the student's attendance percentage (0-100)? ")
 
 
-#final error message with loop to ensure valid input for grade and attendance
-while True:
-    grade = input("what is the student's mark (0-100)? ")
-    attendance = input("what is the student's attendance percentage (0-100)? ")
-        
-    #Error handling for invalid input
-    try:
-        grade = float(grade)
-        attendance = float(attendance)
-    except ValueError:
-        print("Please enter a number for the grade and attendance.")
-    else:
-        if 0 <= grade <= 100 and 0 <= attendance <= 100:
-            student = {
-                "student_id": Student_id,
-                "name": student_name,
-                "subject": subject,
-                "grade": grade,
-                "attendance": attendance,
-            }
-            print(student)
-            break
+#to store all records in a list of dictionaries
+Students = []
+#collecting data for three records
+for number in range(1, 4):
+    print(f"\nStudent {number}: of 3")
+    Student_id = input("what is the student's ID number? ")
+    student_name = input("what is the student's name? ")
+    subject = input("which subject is this mark for? ")
+    
+
+    #final error message with loop to ensure valid input for grade and attendance
+    while True:
+        grade = input("what is the student's mark (0-100)? ")
+        attendance = input("what is the student's attendance percentage (0-100)? ")
+            
+        #Error handling for invalid input
+        try:
+            grade = float(grade)
+            attendance = float(attendance)
+        except ValueError:
+            print("Please enter a number for the grade and attendance.")
         else:
-            print("Grade and Attendance must both be between 0 and 100. Please enter valid values.")
+            if 0 <= grade <= 100 and 0 <= attendance <= 100:
+                student = {
+                    "student_id": Student_id,
+                    "name": student_name,
+                    "subject": subject,
+                    "grade": grade,
+                    "attendance": attendance,
+                }
+                print(student)
+                break
+            else:
+                print("Grade and Attendance must both be between 0 and 100. Please enter valid values.")
+                
+#display records
+print(f"\nTotal records: {len(Students)}")
+for student in Students:
+    print(f"{student['student_id']} | {student['name']} | {student['subject']} | Mark: {student['grade']} | Attendance: {student['attendance']}%")
 
 
-print(f"{Student_id} | {student_name} | {subject} | Mark: {grade} | Attendance: {attendance}%")
 
 
 #Creating a Dictionary to store the student information
