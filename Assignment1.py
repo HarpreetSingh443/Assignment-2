@@ -13,7 +13,14 @@ Students = []
 #collecting data for three records
 for number in range(1, 4):
     print(f"\nStudent {number}: of 3")
-    Student_id = input("what is the student's ID number? ")
+        
+    while True:
+        
+        Student_id = input("what is the student's ID number? ").strip()
+        if Student_id:
+            break
+        print("Student ID cannot be blank. Please enter a valid ID number.")
+        
     student_name = input("what is the student's name? ")
     subject = input("which subject is this mark for? ")
     
