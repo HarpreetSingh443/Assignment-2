@@ -38,6 +38,7 @@ for number in range(1, 4):
                     "grade": grade,
                     "attendance": attendance,
                 }
+                Students.append(student) #Accepts the student record and adds it to the list of students
                 print(student)
                 break
             else:
