@@ -20,13 +20,22 @@ for number in range(1, 4):
         if Student_id:
             break
         print("Student ID cannot be blank. Please enter a valid ID number.")
+     
+    student_name = None
     
-    while True:
-        student_name = input("what is the student's name? ").strip()
-        if student_name:
+    for record in Students:
+        if record["student_id"] == Student_id:
+            student_name = record["name"]
+            print(f"Found Student ID {Student_id} already exists. Name: {student_name}")
             break
-        print("Student name cannot be blank. Please enter a valid name.")
+    if student_name is None:
         
+        while True:
+            student_name = input("what is the student's name? ").strip()
+            if student_name:
+                break
+            print("Student name cannot be blank. Please enter a valid name.")
+    
      while True:
         subject = input("which subject is this mark for? ").strip()
         if not subject:
