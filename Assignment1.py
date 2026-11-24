@@ -26,13 +26,25 @@ for number in range(1, 4):
         if student_name:
             break
         print("Student name cannot be blank. Please enter a valid name.")
-    
-    while True:
+        
+     while True:
         subject = input("which subject is this mark for? ").strip()
-        if subject:
-            break
-        print("Subject cannot be blank. Please enter a valid subject.")    
-    
+        if not subject:
+            print("Subject cannot be blank. Please enter a valid subject.")
+            continue
+        
+        duplicate_found = False
+        for record in Students:
+            if (
+                record["student_id"] == Student_id and
+                record["subject"].casefold() == subject.casefold()
+            ):
+                duplicate_found = True
+                break
+
+        if duplicate_found:
+            print(f"{Student_id} already has a record for the subject {subject}. Enter another subject.")
+            continue
 
     #final error message with loop to ensure valid input for grade and attendance
     while True:
