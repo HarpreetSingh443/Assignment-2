@@ -78,16 +78,24 @@ def add_record(records):
     records.append(student)  # Store the validated record.
     print(student)
     
-    
+   
 Students = []
 
-for number in range(1, 4):
-    print(f"\nRecord {number} of 3")
-    add_record(Students)
+while True:
+    print("\n1. Add record")
+    print("2. View records")
+    print("3. Exit")
 
-display_records(Students)
+    choice = input("Choose an option: ").strip()
 
-
+    if choice == "1":
+        add_record(Students)
+    elif choice == "2":
+        display_records(Students)
+    elif choice == "3":
+        break
+    else:
+        print("Invalid choice. Please enter 1, 2 or 3.")
 
 
 
