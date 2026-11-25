@@ -18,7 +18,19 @@ def read_percentage(question):
             return value
 
         print("The percentage must be between 0 and 100.")
-        
+
+
+def display_records(records):
+    if not records:
+        print("No student records to display.")
+        return
+
+    print(f"\nTotal records: {len(records)}")
+    for student in records:
+        print(
+            f"{student['student_id']} | {student['name']} | {student['subject']} | "f"Mark: {student['grade']} | Attendance: {student['attendance']}%"
+        )
+          
 #to store all records in a list of dictionaries
 Students = []
 #collecting data for three records
