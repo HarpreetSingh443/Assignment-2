@@ -6,6 +6,19 @@ def read_non_blank(question):
             return answer
         print("Please enter a value.")
 
+def read_percentage(question):
+    while True:
+        try:
+            value = float(input(question))
+        except ValueError:
+            print("Please enter a number, such as 75 or 75.5.")
+            continue
+
+        if 0 <= value <= 100:
+            return value
+
+        print("The percentage must be between 0 and 100.")
+        
 #to store all records in a list of dictionaries
 Students = []
 #collecting data for three records
