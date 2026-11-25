@@ -83,10 +83,8 @@ for number in range(1, 4):
     print(student)
     
 #display records
-print(f"\nTotal records: {len(Students)}")
-for student in Students:
-    print(f"{student['student_id']} | {student['name']} | {student['subject']} | Mark: {student['grade']} | Attendance: {student['attendance']}%")
-
-
+                
+#display records
+display_records(Students)
 
 
