@@ -82,9 +82,16 @@ for number in range(1, 4):
     Students.append(student)  # Store the validated record.
     print(student)
     
+               
 #display records
-                
-#display records
+def add_record(records):
+    Students = []
+
+for number in range(1, 4):
+    print(f"\nRecord {number} of 3")
+    add_record(Students)
+
 display_records(Students)
+
 
 
