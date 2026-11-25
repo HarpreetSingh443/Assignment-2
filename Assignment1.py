@@ -1,26 +1,24 @@
 
-Student_id = input("what is the student's ID number? ")
-student_name = input("what is the student's name? ")
-print("Hello " + student_name + "!")
-
-subject = input("which subject is this mark for? ")
-grade = input("what is the student's mark (0-100)? ")
-attendance = input("what is the student's attendance percentage (0-100)? ")
-
+def read_non_blank(question):
+    while True:
+        answer = input(question).strip()
+        if answer:
+            return answer
+        print("Please enter a value.")
 
 #to store all records in a list of dictionaries
 Students = []
 #collecting data for three records
 for number in range(1, 4):
-    print(f"\nStudent {number}: of 3")
-        
+    print(f"\nRecord {number}: of 3")
+    
     while True:
         
-        Student_id = input("what is the student's ID number? ").strip()
+        Student_id = read_non_blank("What is the student's ID number? ")
         if Student_id:
             break
         print("Student ID cannot be blank. Please enter a valid ID number.")
-     
+    
     student_name = None
     
     for record in Students:
@@ -36,7 +34,7 @@ for number in range(1, 4):
                 break
             print("Student name cannot be blank. Please enter a valid name.")
     
-     while True:
+    while True:
         subject = input("which subject is this mark for? ").strip()
         if not subject:
             print("Subject cannot be blank. Please enter a valid subject.")
@@ -54,6 +52,7 @@ for number in range(1, 4):
         if duplicate_found:
             print(f"{Student_id} already has a record for the subject {subject}. Enter another subject.")
             continue
+        break
 
     #final error message with loop to ensure valid input for grade and attendance
     while True:
@@ -67,6 +66,8 @@ for number in range(1, 4):
         except ValueError:
             print("Please enter a number for the grade and attendance.")
         else:
+            
+            #Creating a Dictionary to store the student information
             if 0 <= grade <= 100 and 0 <= attendance <= 100:
                 student = {
                     "student_id": Student_id,
@@ -75,7 +76,7 @@ for number in range(1, 4):
                     "grade": grade,
                     "attendance": attendance,
                 }
-                Students.append(student) #Accepts the student record and adds it to the list of students
+                Students.append(student) #Store the validated record.
                 print(student)
                 break
             else:
@@ -85,22 +86,6 @@ for number in range(1, 4):
 print(f"\nTotal records: {len(Students)}")
 for student in Students:
     print(f"{student['student_id']} | {student['name']} | {student['subject']} | Mark: {student['grade']} | Attendance: {student['attendance']}%")
-
-
-
-
-#Creating a Dictionary to store the student information
-if 0 <= grade <= 100 and 0 <= attendance <= 100:
-    student = {
-        "student_id": Student_id,
-        "name": student_name,
-        "subject": subject,
-        "grade": grade,
-        "attendance": attendance,
-    }
-    print(student)
-else:
-    print("Grade and Attendance must both be between 0 and 100. Please enter valid values.")
 
 
 
