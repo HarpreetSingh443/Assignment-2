@@ -11,47 +11,36 @@ Students = []
 #collecting data for three records
 for number in range(1, 4):
     print(f"\nRecord {number}: of 3")
-    
-    while True:
-        
-        Student_id = read_non_blank("What is the student's ID number? ")
-        if Student_id:
-            break
-        print("Student ID cannot be blank. Please enter a valid ID number.")
+     
+    Student_id = read_non_blank("What is the student's ID number? ")
     
     student_name = None
-    
+
     for record in Students:
         if record["student_id"] == Student_id:
             student_name = record["name"]
-            print(f"Found Student ID {Student_id} already exists. Name: {student_name}")
+            print(f"Found student {Student_id}: {student_name}")
             break
+
     if student_name is None:
-        
-        while True:
-            student_name = input("what is the student's name? ").strip()
-            if student_name:
-                break
-            print("Student name cannot be blank. Please enter a valid name.")
-    
+        student_name = read_non_blank("What is the student's name? ")
+
     while True:
-        subject = input("which subject is this mark for? ").strip()
-        if not subject:
-            print("Subject cannot be blank. Please enter a valid subject.")
-            continue
-        
+        subject = read_non_blank("Which subject is this mark for? ")
+
         duplicate_found = False
         for record in Students:
             if (
-                record["student_id"] == Student_id and
-                record["subject"].casefold() == subject.casefold()
+                record["student_id"] == Student_id
+                and record["subject"].casefold() == subject.casefold()
             ):
                 duplicate_found = True
                 break
 
         if duplicate_found:
-            print(f"{Student_id} already has a record for the subject {subject}. Enter another subject.")
+            print(f"{Student_id} already has a record for {subject}. Enter another subject.")
             continue
+
         break
 
     #final error message with loop to ensure valid input for grade and attendance
