@@ -30,18 +30,14 @@ def display_records(records):
         print(
             f"{student['student_id']} | {student['name']} | {student['subject']} | "f"Mark: {student['grade']} | Attendance: {student['attendance']}%"
         )
-          
-#to store all records in a list of dictionaries
-Students = []
-#collecting data for three records
-for number in range(1, 4):
-    print(f"\nRecord {number}: of 3")
-     
+         
+def add_record(records):
+    
     Student_id = read_non_blank("What is the student's ID number? ")
     
     student_name = None
 
-    for record in Students:
+    for record in records:
         if record["student_id"] == Student_id:
             student_name = record["name"]
             print(f"Found student {Student_id}: {student_name}")
@@ -79,19 +75,19 @@ for number in range(1, 4):
         "grade": grade,
         "attendance": attendance,
     }
-    Students.append(student)  # Store the validated record.
+    records.append(student)  # Store the validated record.
     print(student)
     
-               
-#display records
-def add_record(records):
-    Students = []
+    
+Students = []
 
 for number in range(1, 4):
     print(f"\nRecord {number} of 3")
     add_record(Students)
 
 display_records(Students)
+
+
 
 
 
