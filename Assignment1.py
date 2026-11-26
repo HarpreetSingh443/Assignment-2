@@ -86,7 +86,15 @@ def find_records(records, student_id):
             matches.append(record)
 
     return matches
-   
+
+def rename_student(records, student_id, new_name):
+    matches = find_records(records, student_id)
+
+    for record in matches:
+        record["name"] = new_name
+
+    return len(matches)
+    
 Students = []
 
 while True:
