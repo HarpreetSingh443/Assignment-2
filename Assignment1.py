@@ -113,12 +113,21 @@ while True:
     elif choice == "3":
         student_id = read_non_blank("Enter the student ID to search for: ")
         matches = find_records(Students, student_id)
-
-        if matches:
-            display_records(matches)
-        else:
-            print("No records found for that student ID.")
     elif choice == "4":
+        student_id = read_non_blank("Enter the student ID to rename: ")
+        matches = find_records(Students, student_id)
+
+        if not matches:
+            print("Student not found.")
+        else:
+            display_records(matches)
+            new_name = read_non_blank("Enter the new name: ")
+            updated = rename_student(Students, student_id, new_name)
+            print(f"Records updated: {updated}")
+
+    elif choice == "5":
         break
     else:
-        print("Invalid choice. Please enter 1, 2, 3 or 4.")
+        print("Invalid choice. Please enter 1, 2, 3, 4 or 5.")
+
+     
