@@ -96,6 +96,18 @@ def find_subject_record(records, student_id, subject):
             return record
 
     return None
+
+def update_results(records, student_id, subject, new_grade, new_attendance):
+    if not (0 <= new_grade <= 100 and 0 <= new_attendance <= 100):
+        return False
+
+    record = find_subject_record(records, student_id, subject)
+    if record is None:
+        return False
+
+    record["grade"] = new_grade
+    record["attendance"] = new_attendance
+    return True
     
 def rename_student(records, student_id, new_name):
     matches = find_records(records, student_id)
