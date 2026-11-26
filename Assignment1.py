@@ -78,6 +78,14 @@ def add_record(records):
     records.append(student)  # Store the validated record.
     print(student)
     
+def find_records(records, student_id):
+    matches = []
+
+    for record in records:
+        if record["student_id"] == student_id:
+            matches.append(record)
+
+    return matches
    
 Students = []
 
