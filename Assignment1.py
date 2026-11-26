@@ -91,8 +91,9 @@ Students = []
 
 while True:
     print("\n1. Add record")
-    print("2. View records")
-    print("3. Exit")
+    print("2. View all records")
+    print("3. Search by student ID")
+    print("4. Exit")
 
     choice = input("Choose an option: ").strip()
 
@@ -101,9 +102,14 @@ while True:
     elif choice == "2":
         display_records(Students)
     elif choice == "3":
+        student_id = read_non_blank("Enter the student ID to search for: ")
+        matches = find_records(Students, student_id)
+
+        if matches:
+            display_records(matches)
+        else:
+            print("No records found for that student ID.")
+    elif choice == "4":
         break
     else:
-        print("Invalid choice. Please enter 1, 2 or 3.")
-
-
-
+        print("Invalid choice. Please enter 1, 2, 3 or 4.")
