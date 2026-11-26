@@ -87,6 +87,16 @@ def find_records(records, student_id):
 
     return matches
 
+def find_subject_record(records, student_id, subject):
+    for record in records:
+        if (
+            record["student_id"] == student_id
+            and record["subject"].casefold() == subject.casefold()
+        ):
+            return record
+
+    return None
+    
 def rename_student(records, student_id, new_name):
     matches = find_records(records, student_id)
 
