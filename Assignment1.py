@@ -189,6 +189,20 @@ while True:
             else:
                 print("Could not update the record.")
     elif choice == "6":
+        student_id = read_non_blank("Enter the student ID: ")
+        old_subject = read_non_blank("Which subject do you want to rename? ")
+        record = find_subject_record(Students, student_id, old_subject)
+
+        if record is None:
+            print("Student–subject record not found.")
+        else:
+            new_subject = read_non_blank("Enter the new subject name: ")
+            if rename_subject(Students, student_id, old_subject, new_subject):
+                print(f"Subject updated to {new_subject}.")
+            else:
+                print(f"{student_id} already has another record for {new_subject}.")
+
+    elif choice == "7":
         break
     else:
-        print("Invalid choice. Please enter a number from 1 to 6.")
+        print("Invalid choice. Please enter a number from 1 to 7.")
