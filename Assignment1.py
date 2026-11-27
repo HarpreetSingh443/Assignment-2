@@ -141,7 +141,8 @@ while True:
     print("3. Search by student ID")
     print("4. Rename student")
     print("5. Update mark and attendance")
-    print("6. Exit")
+    print("6. Rename subject")
+    print("7. Exit")
 
     choice = input("Choose an option: ").strip()
 
