@@ -154,8 +154,25 @@ while True:
             print(f"Records updated: {updated}")
 
     elif choice == "5":
+        student_id = read_non_blank("Enter the student ID: ")
+        subject = read_non_blank("Which subject do you want to update? ")
+        record = find_subject_record(Students, student_id, subject)
+
+        if record is None:
+            print("Student subject record not found.")
+        else:
+            print(f"Current mark: {record['grade']}%")
+            print(f"Current attendance: {record['attendance']}%")
+
+            new_grade = read_percentage("Enter the new mark (0-100): ")
+            new_attendance = read_percentage("Enter the new attendance (0-100): ")
+
+            updated = update_results(Students, student_id, subject, new_grade, new_attendance)
+            if updated:
+                print("Mark and attendance updated.")
+            else:
+                print("Could not update the record.")
+    elif choice == "6":
         break
     else:
-        print("Invalid choice. Please enter 1, 2, 3, 4 or 5.")
-
-     
+        print("Invalid choice. Please enter a number from 1 to 6.")
