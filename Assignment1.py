@@ -117,6 +117,22 @@ def rename_student(records, student_id, new_name):
 
     return len(matches)
     
+def rename_subject(records, student_id, old_subject, new_subject):
+    new_subject = new_subject.strip()
+    if not new_subject:
+        return False
+
+    record = find_subject_record(records, student_id, old_subject)
+    if record is None:
+        return False
+
+    existing = find_subject_record(records, student_id, new_subject)
+    if existing is not None and existing is not record:
+        return False
+
+    record["subject"] = new_subject
+    return True
+
 Students = []
 
 while True:
